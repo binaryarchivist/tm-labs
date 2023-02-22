@@ -1,0 +1,95 @@
+TITLE: The Curse of the Source King
+
+You are a powerful sorcerer, tasked with saving the realm of Rivellon from a dangerous curse that has been unleashed upon the land. You have learned that the curse was caused by the Source King, a powerful and evil mage who has been using the power of the Source to control the minds of the people and unleash chaos upon the realm. It's up to you to defeat the Source King and lift the curse before it's too late.
+
+-> START
+=== START ===
+
+You find yourself in the town of Driftwood, where you hear rumors of a powerful artifact known as the Scepter of Rhalic, which is said to be the only weapon that can defeat the Source King. You can:
+
++ Visit the local wizard's tower to learn more about the Scepter (go to WIZARD_TOWER) -> WIZARD_TOWER
++ Explore the town of Driftwood and talk to the locals (go to DRIFTWOOD) -> DRIFTWOOD
+-> END
+
+=== DRIFTWOOD ===
+
+You wander around the town of Driftwood, talking to the locals and trying to gather information about the Source King and the curse. You hear rumors of a group of rebels who are fighting against the Source King, as well as a powerful witch who might be able to help you lift the curse. You also notice a strange old man who seems to be watching you.
+
+You can:
+
++ Join forces with the rebels and help them in their fight against the Source King (go to REBELS) -> REBELS
++ Visit the witch and ask for her help in lifting the curse (go to WITCH)-> WITCH
++ Approach the old man and ask him about the curse (go to OLD_MAN) -> OLD_MAN
+-> END
+
+=== WIZARD_TOWER ===
+
+You enter the local wizard's tower and find it filled with magical artifacts and ancient tomes. The wizard who runs the tower tells you that the Scepter of Rhalic is located in a dangerous and ancient tomb called the Tomb of the Source King. He warns you that the tomb is heavily guarded and that many adventurers have tried to reach the Scepter, but none have ever returned.
+
+You can:
+
++ Hire a group of mercenaries to help you on your journey (go to MERCENARIES) -> MERCENARIES
++ Set out on your own to the Tomb of the Source King (go to TOMB) -> TOMB
+-> END
+
+=== MERCENARIES ===
+
+You hire a group of mercenaries and set out on your journey to the Tomb of the Source King. Along the way, you encounter many dangers, including vicious beasts and treacherous terrain. You also learn more about your mercenary companions and the reasons why they have joined your quest.
+
++ The End... (go to ENDING) -> ENDING
+-> END
+
+=== TOMB ===
+
+You set out on your own to the Tomb of the Source King, facing many dangers and obstacles along the way. You encounter traps, puzzles, and powerful guardians who protect the Scepter of Rhalic. You also learn more about the history of the Source King and the curse that he has unleashed upon the realm.
+
++ The End... (go to ENDING) -> ENDING
+-> END
+
+=== REBELS ===
+
+You join forces with the rebels and help them in their fight against the Source King. Together, you launch a daring raid on the Source King's stronghold, fighting your way through hordes of his minions and powerful magics. You also learn more about the rebels and their motivations, as well as the Source King's plans for the realm.
+
++ The End... (go to ENDING) -> ENDING
+-> END
+
+=== WITCH ===
+
+You visit the witch and ask for her help
+The witch agrees to help you, but in exchange for her assistance, she asks you to retrieve a powerful magical artifact that was stolen from her. The artifact is located in a dangerous and mysterious forest known as the Bloodmoon Island.
+
+You can:
+
++ Agree to help the witch and set out to find the artifact (go to BLOODMOON_ISLAND) -> BLOODMOON_ISLAND
++ Refuse the witch's offer and continue your search for the Scepter of Rhalic (go back to START)-> START
+-> END
+
+=== OLD_MAN ===
+
+You approach the old man and ask him about the curse. The old man reveals that he is a powerful wizard who has been studying the Source King and the curse for many years. He tells you that the only way to lift the curse is to gather four ancient relics that were created by the gods themselves. The relics are scattered throughout the realm, and each one is guarded by powerful guardians.
+
+You can:
+
++ Set out to find the four relics and lift the curse (go to RELICS) -> RELICS
++ Refuse the old man's offer and continue your search for the Scepter of Rhalic (go back to START) -> START
+-> END
+=== BLOODMOON_ISLAND ===
+
+You set out to find the witch's stolen artifact, facing many dangers and obstacles along the way. The Bloodmoon Island is filled with deadly traps and cursed creatures that will stop at nothing to keep you from reaching your goal. You also learn more about the witch and her dark powers.
+
++ The end... (go to ENDING) -> ENDING
+-> END
+
+=== RELICS ===
+
+You set out to find the four relics, facing many dangers and obstacles along the way. Each relic is guarded by powerful guardians who will stop at nothing to keep you from reaching your goal. You also learn more about the history of the realm and the gods who created the relics.
+
++ The end... (go to ENDING) -> ENDING
+-> END
+
+=== ENDING ===
+
+You reach your goal, whether it be the Scepter of Rhalic, the witch's stolen artifact, or one of the four relics. With your powerful weapon in hand, you face the Source King in a final battle that will determine the fate of the realm. The battle is long and fierce, but in the end, you emerge victorious, lifting the curse and restoring peace to the land.
+
+Throughout your journey, you have grown in strength and knowledge, and your character has developed into a powerful and wise hero. You have faced many challenges and made many choices, each one shaping the outcome of your story. But in the end, it was your determination and bravery that saved the realm from the curse of the Source King.
+-> END
