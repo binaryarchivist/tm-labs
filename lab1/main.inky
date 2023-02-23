@@ -1,33 +1,76 @@
-Title: "Divine Curse: The Liberation of Lohse"
+VAR wants_to_cure_corrputed = false
 
++ "Divine Curse: The Liberation of Lohse" 
+-> Begin
 
-Somewhere in the distant past in the world of Rivellon there was Lohse - a woman of many talents. She could sing like a lark, play the flute like a maestro, and spin stories that could keep even the most jaded listener captivated for hours. But beneath her easy smile and carefree demeanor lurked a dark secret that was consuming her, what felt like a vine around her soul. Since early childhoold she felt the presence of someone deep inside of her, a demon perhaps ? For years, countless of whispers in her ear, urging her to do unspeakable acts and take control of her mind and body. At times, Lohse could barely resist the demon's influence, and she feared that one day she would succumb to its power completely.
+=== Begin ===
+    -> Introduction
 
- Lohse refused to give up. She continued to perform her music throughout the world of Rivellon, entertain crowds, and make friends wherever she went, all while searching for a way to rid herself of the demon's presence. She consulted with scholars, priests, and other experts in the arcane, seeking a solution that would free her from her torment.
+    = Introduction
+    Somewhere in the distant past in the world of Rivellon there was Lohse - a woman of many talents. She could sing like a lark, play the flute like a maestro, and spin stories that could keep even the most jaded listener captivated for hours. But beneath her easy smile and carefree demeanor lurked a dark secret that was consuming her, what felt like a vine around her soul. Since early childhoold she felt the presence of someone deep inside of her, a demon perhaps ? For years, countless of whispers in her ear, urging her to do unspeakable acts and take control of her mind and body. At times, Lohse could barely resist the demon's influence, and she feared that one day she would succumb to its power completely.
+
+    Lohse refused to give up. She continued to perform her music throughout the world of Rivellon, entertain crowds, and make friends wherever she went, all while searching for a way to rid herself of the demon's presence. She consulted with scholars, priests, and other experts in the arcane, seeking a solution that would free her from her torment.
  
-As Lohse journeyed deeper into the heart of the darkness, she began to sense that her demon was growing stronger. It was as if the very fabric of reality was beginning to unravel around her, and she could feel the demon's influence seeping into every corner of her mind.
+    As Lohse journeyed deeper into the heart of the darkness, she began to sense that her demon was growing stronger. It was as if the very fabric of reality was beginning to unravel around her, and she could feel the demon's influence seeping into every corner of her mind.
 
-The demon's whispers grew louder and more insistent, and Lohse knew that she was running out of time. She could feel the demon's power surging within her, threatening to break free and consume her completely.
+    The demon's whispers grew louder and more insistent, and Lohse knew that she was running out of time. She could feel the demon's power surging within her, threatening to break free and consume her completely.
+    
+    + Did Lohse give up? 
+    -> Introduction_2
+    -> END
 
-But Lohse refused to give up. She continued to draw on her inner strength, using her music and her storytelling to bolster her resolve and keep the demon at bay. And as she fought on, she began to discover the true source of her power.
+    = Introduction_2
+    No, Lohse refused to give up. She continued to draw on her inner strength, using her music and her storytelling to bolster her resolve and keep the demon at bay. And as she fought on, she began to discover the true source of her power.
 
-Lohse had always known that she was a talented musician and storyteller, but as she faced the demon's power head-on, she began to realize that her gifts were more than mere entertainment. Her music and her stories had the power to touch people's hearts and souls, to inspire them to acts of bravery and heroism, and to bring light to even the darkest of places.
+    Lohse had always known that she was a talented musician and storyteller, but as she faced the demon's power head-on, she began to realize that her gifts were more than mere entertainment. Her music and her stories had the power to touch people's hearts and souls, to inspire them to acts of bravery and heroism, and to bring light to even the darkest of places.
 
-As Lohse continued on her perilous journey, she came ashore on Fort Joy. Strangely enough there was a decimated ship, human corpses ashore. She began to notice strange changes in the world around her. The sky grew darker, the air grew colder, and the very ground beneath their feet seemed to shift and writhe.
+    + Her journey just begins
+    -> Journey
+    -> END
 
-At first, she thought it was simply a trick of the light, a passing illusion. But as she journeyed on, she soon realized that something was very, very wrong.
+    = Journey
+    As Lohse continued on her perilous journey, she came ashore on Fort Joy. Strangely enough there was a decimated ship, human corpses ashore. She began to notice strange changes in the world around her. The sky grew darker, the air grew colder, and the very ground beneath their feet seemed to shift and writhe.
 
-It was the Void.
+    At first, she thought it was simply a trick of the light, a passing illusion. But as she journeyed on, she soon realized that something was very, very wrong.
+    
+    + What is that?
+    -> Villain
+    
+    -> END
+    
+    = Villain
 
-An ancient force of darkness and chaos that threatened to consume everything in its path, the Void was a primal force of destruction that had lain dormant for centuries. But now, as Lohse drew ever closer to their goal, the Void was awakening.
+    It was the Void.
 
-She could see it in the sky, a writhing mass of darkness that seemed to seethe and pulse with a life of its own. She could feel it in the air, a cold and clammy presence that whispered to them in the dark.
+    An ancient force of darkness and chaos that threatened to consume everything in its path, the Void was a primal force of destruction that had lain dormant for centuries. But now, as Lohse drew ever closer to their goal, the Void was awakening.
 
-And worst of all, she could see it in the eyes of her enemies. The once-human creatures had been twisted and corrupted by the power of the Void, their bodies warped and twisted into grotesque caricatures of their former selves.
+    She could see it in the sky, a writhing mass of darkness that seemed to seethe and pulse with a life of its own. She could feel it in the air, a cold and clammy presence that whispered to them in the dark.
 
-Lohse knew that she was in deep trouble. The Void was a force unlike any other, a power that could not be reasoned with or tamed. It would take all of her courage and strength to face it head-on and emerge victorious. But she was determined to do whatever it took to protect the world she loved, no matter the cost.
+    And worst of all, she could see it in the eyes of her enemies.  Their physical appearance has been twisted and distorted beyond recognition, with blackened skin that seems to pulsate with malevolent energy. Their eyes have turned pitch black, and their once-human features have been replaced with sharp, jagged edges. 
+    
+    + [Lohse stood still and examined them] -> Corrupted_humans
+    + [Lohse immediately decided for action] -> Decision
+    
+    -> END
+    
+    = Corrupted_humans
+    ~ wants_to_cure_corrputed = true
+    Their view could frighten anyone and their eyes were pulsing of evil. They were moving lame and painfully at firts glance, but threatening.
+    
+    The corruption has not only affected their appearance but also their psyche. They are driven by a insatiable desire to consume and destroy anything in their path, driven by the desire to expand the power of the Void. They have no empathy or concern for others and will stop at nothing to achieve their goals. They can also manipulate reality to some extent, warping the fabric of space and time to their advantage.
 
-While traveling throughout the Fort Joy, performing at the taverns, asking around she got a name - Malady. An infamous half-demon half-human sorcerer hunted by the Magisters. Last time she was seen was deep in the forest of Farglow. She immediately knew where to proceed on this journey.
+    The corruption by the Void has completely consumed the human's soul, leaving nothing but a dark, empty husk. They are no longer capable of feeling emotions such as love, compassion, or even fear. They are a force to be reckoned with, a terrifying presence that strikes fear into the hearts of those who encounter them.
+    
+    Lohse felt a deep sorrow for them. She decided that she will help the creatures that once were so familiar to her, she will take their suffering whether it will be the cure of the death of them.
+    
+    + Lohse decided for action 
+    -> Decision
+    -> END
+
+    = Decision
+    Lohse knew that she was in deep trouble. The Void was a force unlike any other, a power that could not be reasoned with or tamed. It would take all of her courage and strength to face it head-on and emerge victorious. But she was determined to do whatever it took to protect the world she loved, no matter the cost.
+
+    While traveling throughout the Fort Joy, performing at the taverns, asking around she got a name - Malady. An infamous half-demon half-human sorcerer hunted by the Magisters. Last time she was seen was deep in the forest of Farglow. She immediately knew where to proceed on this journey.
 
 Lohse has been traveling for weeks, battling through the forces of darkness that threatened to overrun the land. She has faced countless challenges and overcome seemingly insurmountable obstacles, but heknew that her quest was far from over.
 
@@ -226,7 +269,7 @@ Malady smiled. "Don't worry about it," she said. "I knew you had it in you. You'
 
 Lohse and Malady stood there for a moment, breathing heavily and looking at the smoking remains of the demon. They had done it. They had defeated Andramalikh. But at what cost? They were battered and bruised, their bodies exhausted and drained. But they had succeeded in their mission, and that was all that mattered.
 
-
+-> END
 
 
 
