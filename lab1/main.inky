@@ -72,44 +72,70 @@ VAR wants_to_cure_corrputed = false
 
     While traveling throughout the Fort Joy, performing at the taverns, asking around she got a name - Malady. An infamous half-demon half-human sorcerer hunted by the Magisters. Last time she was seen was deep in the forest of Farglow. She immediately knew where to proceed on this journey.
 
-Lohse has been traveling for weeks, battling through the forces of darkness that threatened to overrun the land. She has faced countless challenges and overcome seemingly insurmountable obstacles, but heknew that her quest was far from over.
+    Lohse has been traveling for weeks, battling through the forces of darkness that threatened to overrun the land. She has faced countless challenges and overcome seemingly insurmountable obstacles, but heknew that her quest was far from over.
 
-As she made her way through the twisting paths of an ancient temple in the forest of Farglow, she heard a voice calling out to her. It was a woman's voice, full of power and authority, and it seemed to be coming from every direction at once.
+    As she made her way through the twisting paths of an ancient temple in the forest of Farglow, she heard a voice calling out to her. It was a woman's voice, full of power and authority, and it seemed to be coming from every direction at once.
 
-"Stop," the voice commanded. "You will go no further."
+    "Stop," the voice commanded. "You will go no further."
+    
+    + What Lohse did?
+    -> Ancient_temple
+    -> END
+    
+    = Ancient_temple
 
-// need to think how she got the sword
-Lohse drew her sword, ready for a fight. But as she looked around, she saw no one. Only a thick fog that seemed to have materialized out of nowhere.
+    // need to think how she got the sword
+    Lohse drew her sword, ready for a fight. But as she looked around, she saw no one. Only a thick fog that seemed to have materialized out of nowhere.
 
-And then, suddenly, a figure appeared before them. She was a woman, tall and imposing, with skin as white as snow and eyes that glowed like embers. Her hair was long and black, and it flowed around her like a veil.
+    And then, suddenly, a figure appeared before them. She was a woman, tall and imposing, with skin as white as snow and eyes that glowed like embers. Her hair was long and black, and it flowed around her like a veil.
 
-"Who are you?" Lohse demanded.
+    + "Who are you?" 
+    -> Who_are_you
+    -> END
+    
+    = Who_are_you
+    <>Lohse demanded.
 
-The woman smiled, and her teeth gleamed like diamonds. "I am Malady," she said. "Half demon, half human, and all business. I have been sent to help you on your quest."
+    The woman smiled, and her teeth gleamed like diamonds. "I am Malady," she said. "Half demon, half human, and all business. I have been sent to help you on your quest."
 
-Lohse exchanged wary glances. She had heard of Malady, of course, and her reputation was as dark as the forces she was fighting against. But she had no choice. She needed all the help she could get.
+    Lohse exchanged wary glances. She had heard of Malady, of course, and her reputation was as dark as the forces she was fighting against. But she had no choice. She needed all the help she could get.
 
-"Very well," Lohse said. "What can you do to help me?"
+    "Very well," Lohse said. 
+    
+    + "What can you do to help me?" 
+    -> More_on_malady
+    
+    
+    = More_on_malady
+    Malady chuckled. "Oh, I can do many things. I can find the secrets you seek, unlock the doors you cannot, and provide you with the means to defeat your enemies. But make no mistake, I am no charity. There is a price to be paid for my services."
 
-Malady chuckled. "Oh, I can do many things. I can find the secrets you seek, unlock the doors you cannot, and provide you with the means to defeat your enemies. But make no mistake, I am no charity. There is a price to be paid for my services."
+    Lohse knew that dealing with Malady was a dangerous game. But she had come too far to turn back now. She agreed to her terms, and the half-demon led them deeper into the temple, her dark laughter echoing behind them.
+    
+    Lohse stepped forward, her hand resting on her sword hilt. 
+    
+    + "I am looking for answers. Answers about the Void, and how to stop it." 
+    -> Malady
+    -> END
+-> END
+    
 
-Lohse knew that dealing with Malady was a dangerous game. But she had come too far to turn back now. She agreed to her terms, and the half-demon led them deeper into the temple, her dark laughter echoing behind them.
 
-// Malady
+=== Malady ===
+    Malady's eyes widened slightly. "The Void, you say? That's a dangerous path you're treading, my dear. Few who venture down it come back the same."
 
-Lohse stepped forward, her hand resting on her sword hilt. "I am looking for answers," she said. "Answers about the Void, and how to stop it."
+    "I am willing to take that risk," Lohse said firmly.
 
-Malady's eyes widened slightly. "The Void, you say? That's a dangerous path you're treading, my dear. Few who venture down it come back the same."
+    Malady chuckled. "I can see that. Very well, I'll help you. But I must warn you, the path to the Void is not an easy one. You will face many dangers, and many trials. Are you sure you're ready for that?"
 
-"I am willing to take that risk," Lohse said firmly.
+    + "I am ready." 
+    -> Into_the_forest
+    -> END
+    
+    = Into_the_forest
+    "Good," Malady said. "Then let us begin."
 
-Malady chuckled. "I can see that. Very well, I'll help you. But I must warn you, the path to the Void is not an easy one. You will face many dangers, and many trials. Are you sure you're ready for that?"
-
-Lohse nodded. "I am ready."
-
-"Good," Malady said. "Then let us begin."
-
-And with that, she led them deep into the heart of the forest, where strange and twisted creatures lurked in the shadows. As she walked, Malady regaled them with tales of her own adventures, of the powerful entities she had faced and defeated. Her stories were both frightening and fascinating, and Lohse listened with rapt attention.
+    And with that, she led them deep into the heart of the forest, where strange and twisted creatures lurked in the shadows. As she walked, Malady regaled them with tales of her own adventures, of the powerful entities she had faced and defeated. Her stories were both frightening and fascinating, and Lohse listened with rapt attention.
+    -> END
 
 Eventually, they came to a clearing, where a strange and ancient structure loomed in the center. It was a portal, Malady explained, a gateway to the Void itself.
 
@@ -270,9 +296,3 @@ Malady smiled. "Don't worry about it," she said. "I knew you had it in you. You'
 Lohse and Malady stood there for a moment, breathing heavily and looking at the smoking remains of the demon. They had done it. They had defeated Andramalikh. But at what cost? They were battered and bruised, their bodies exhausted and drained. But they had succeeded in their mission, and that was all that mattered.
 
 -> END
-
-
-
-
-
-
