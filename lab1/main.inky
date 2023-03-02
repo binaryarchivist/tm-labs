@@ -1,6 +1,11 @@
 VAR wants_to_cure_corrputed = false
+VAR corruption_levels = 25 // at 100 she basically dies
+VAR health_bar = 100 // at 0 she dies
+VAR years_old = 20
 
-+ "Divine Curse: The Liberation of Lohse" 
+
+
++ "The Song of Lohse: A Divinity Original Sin 2 Tale" 
 -> Begin
 
 === Begin ===
@@ -15,10 +20,37 @@ VAR wants_to_cure_corrputed = false
 
     The demon's whispers grew louder and more insistent, and Lohse knew that she was running out of time. She could feel the demon's power surging within her, threatening to break free and consume her completely.
     
-    + Did Lohse give up? 
+    Did Lohse give up?
+    + No
     -> Introduction_2
-    -> END
+    + Yes
+    Lohse sat quietly in her small room, staring blankly at the wall. As time passed, Lohse withdrew more and more from the world. She rarely left her room, rarely spoke to anyone. Her health began to decline, and she grew weaker every day.
+    
+    -> poor_ending
+    
+    = poor_ending
+    ~ years_old = years_old + 15
+    
+    {
+        - corruption_levels > 100:
+        Lohse dies from the curse.
+        - years_old > 20 && years_old < 40:
+        ~ corruption_levels += random()
+        - years_old > 30 && years_old < 45:
+        ~ corruption_levels += random()*2
+        - years_old > 50:
+        Lohse dies from a heart attack.
+        -> END
+        - else:
+        Lohse eventually dies.
+        -> END
 
+    }
+
+    + Outcome
+    Lohse's story didn't end with a bang, but with a whisper. She had the potential to be a hero, but in the end, she chose to do nothing. And so, the world continued to suffer, and Lohse was forgotten by all but a few who remembered her as a lost opportunity.
+    -> END
+    
     = Introduction_2
     No, Lohse refused to give up. She continued to draw on her inner strength, using her music and her storytelling to bolster her resolve and keep the demon at bay. And as she fought on, she began to discover the true source of her power.
 
@@ -135,17 +167,24 @@ VAR wants_to_cure_corrputed = false
     "Good," Malady said. "Then let us begin."
 
     And with that, she led them deep into the heart of the forest, where strange and twisted creatures lurked in the shadows. As she walked, Malady regaled them with tales of her own adventures, of the powerful entities she had faced and defeated. Her stories were both frightening and fascinating, and Lohse listened with rapt attention.
-    -> END
+    
+    -> GOING_IN_PORTAL
+    
+-> END
 
+=== GOING_IN_PORTAL
 Eventually, they came to a clearing, where a strange and ancient structure loomed in the center. It was a portal, Malady explained, a gateway to the Void itself.
 
 "Are you ready?" she asked, her eyes serious.
 
-Lohse took a deep breath, then nodded. "We're ready."
++ Lohse took a deep breath, then nodded. "I am ready."
 
 And with that, they stepped through the portal, ready to face whatever lay beyond.
-
+-> PORTAL
+-> END
 // GOING IN THE portal
+-> PORTAL
+=== PORTAL ===
 As Lohse emerged from the portal, she found herself in a dark and twisted realm, filled with strange creatures and twisted landscapes. The very air seemed to pulse with an otherworldly energy, and Lohse could feel the weight of the Void pressing down upon her.
 
 "This way," Malady said, gesturing toward a distant mountain range. "The answers you seek lie ahead."
@@ -156,30 +195,113 @@ There, she found an ancient temple, carved into the very rock face of the mounta
 
 "You'll have to be careful," she warned. "The guardians of the temple are powerful, and they will not hesitate to destroy you if you get in their way."
 
+
+-> TEMPLE
+-> END
+=== TEMPLE ===
 Lohse steeled herself for what lay ahead, then set off up the mountain. As she climbed, they could feel the power of the Void growing stronger, threatening to overwhelm her at any moment. But at the same time it seems that the pain from her curse started to get stronger and the voices were getting louder, she could hear a lot of voices saying her name in a loop. Only one thing became clear to Lohse that only answers will lie ahead.
 
 As she pushed on, fighting her way through the temple's defenses until she finally reached the inner sanctum. There, she found a powerful entity, a being of pure Void energy that stood between her and her goal.
 
+-> BAAL_ENCOUNTER
+
+-> END
 // BAAL ENCOUNTER
+=== BAAL_ENCOUNTER ===
+VAR fear = 15
 Suddenly she could feel the air growing thick with the stench of brimstone. She knew that she was drawing closer to her target, the demon Ba'al, and she steeled herself for the battle to come.
 
 At last, she came to a massive chamber, where Ba'al was waiting for her. The demon was huge, easily twice the size of any of Lohse, and his eyes glowed with an otherworldly fire. He brandished a massive sword, his muscles bulging with power as he prepared to strike.
 
 Lohse drew her weapon, knowing that this would be the fight of her lives. She had faced demons before, but none as powerful as Ba'al. She would have to be quick and coordinated.
 
-The fight was brutal and unforgiving. Ba'al's sword struck with the force of a battering ram, sending Lohse tumbling across the floor. But she refused to give up, regaining her footing and striking back with all the force he muster.
+// OPTIONS
++ [Charge in] -> charge_in
++ Analyse surroundings -> analyse_surroundings
 
+=== charge_in ===
+Ba'al's sword struck with the force of a battering ram, sending Lohse tumbling across the floor.
+~ health_bar = health_bar - 20
+~ fear = fear + 15
+-> mid_baal_fight
+-> END
+
+=== analyse_surroundings ===
+You are analysing your surroundings preparing for the unexpected.
+~ fear = fear - 5
+-> mid_baal_fight
+-> END
+
+=== mid_baal_fight ===
 As Ba'al charged forward, his massive sword arcing through the air, Lohse leapt aside, dodging the attack with ease. She knew that she had to be quick and agile if she was going to take down a demon of this size and strength.
 
 With a fierce determination in her eyes, Lohse closed the distance between herself and Ba'al, her sword flashing in the dim light. She struck with lightning-fast blows, each one aimed at a weak point in the demon's armor.
 
 Ba'al bellowed with rage as Lohse's sword struck true, sending sparks flying in all directions. He retaliated with a brutal swing of his sword, but Lohse was too quick. She sidestepped the attack and delivered a powerful kick to the demon's shins, sending him off-balance.
 
+
++ Have a look around -> look_around
++ Keep going forward -> go_forward
++ Take a breath and a step back -> reset
+
+=== look_around ===
+~ fear = fear - 5
+Lohse took had a quick glance at surroundings and saw that there are currently no dangers beside Ba'Al.
+
++ Keep going forward -> go_forward
++ Take a breath and a step back -> reset
+-> DONE
+
+=== reset ===
+~ health_bar = health_bar + 10
+~ fear = fear - 5
+Lohse took few deep breathes and feeled better now.
++ Let's Fight!
+    -> final_baal_fight
+-> DONE
+
+=== go_forward ===
 Seizing the opportunity, Lohse darted forward, thrusting her sword deep into Ba'al's side. The demon howled with pain, his massive frame shaking with the force of the blow. But he refused to go down without a fight.
+    -> final_baal_fight
+-> DONE
 
+    // CONTINUE
+-> END
+
+
+
+
+=== final_baal_fight ===
 With a fierce roar, Ba'al grabbed Lohse by the shoulders, lifting her off the ground. Lohse struggled to break free, her heart pounding in her chest. She knew that she was in serious trouble.
+~ fear = fear + 25
+{
+- fear == 100:
+    Lohse's consumed by her fear.
+}
+// OPTIONS
++ [Thrust your sword in Ba'als arm] -> thrust_sword
++ [Keep struggling] -> keep_struggling
 
+=== thrust_sword ===
 But Lohse was not one to give up easily. With a fierce determination, she summoned all of her strength and drove her sword into Ba'al's arm. The demon howled with rage, his grip on Lohse loosening just enough for her to wriggle free.
+    -> after_baal_fight
+-> DONE
+
+=== keep_struggling ===
+You keep struggling and you feel your bones breaking but because of this you slipped from Ba'al's grasp.
+~ health_bar = health_bar - 25
+~ fear = fear + 15
+    -> after_baal_fight
+-> DONE
+
+=== after_baal_fight  ===
+
+{
+    - fear == 100:
+        Lohse sufferes a heart attack and dies.
+    - health_bar <= 0:
+        Lohse dies from blood loss.
+}
 
 Free from Ba'al's grasp, Lohse leapt away, putting distance between herself and the demon. She knew that she was hurt, but she refused to give up. With a deep breath, she readied herself for another attack.
 
@@ -188,7 +310,17 @@ The fight raged on, each blow striking with the force of a hammer. But in the en
 Panting and bloody, Lohse stood victorious, her spirits lifted by her hard-fought victory. She knew that there were still many challenges ahead, but for now, she could rest, secure in the knowledge that she had defeated one of the most powerful demons of the Void.
 
 As she left the temple, Lohse could feel the weight of the Void lifting from her, a sense of peace and calm settling over her. She knew that she still had a long way to go before she could stop the Void once and for all, but she was ready to face whatever lay ahead. With Malady at her side, she knew that she could overcome anything.
+~ fear = 0
+~ corruption_levels = corruption_levels + 25
+~ health_bar = 100
 
++ What happened next?
+-> TRAINING_ARC
+
+-> DONE
+-> END
+
+=== TRAINING_ARC ===
 // PRESET to training arc
 After defeating Ba'al, Lohse found herself in a precarious position. She knew that archdemon possesing her was still out there, and that she needed to be stronger and more prepared if she was going to face him.
 
@@ -199,6 +331,10 @@ Lohse was hesitant at first, but she knew that she needed to get stronger if she
 
 Once they arrived, they quickly realized that the rumors were true. The Bloodmoon Peninsula was filled with danger and peril at every turn. They encountered demons, voidwoken, and other dark creatures at every step, and they had to fight for their lives more than once.
 
++ Their exploration
+-> Exploration
+
+=Exploration
 As they explored the ruins and fought their way through the dangers of the peninsula, Malady began to train Lohse in the ways of demon-fighting. She taught her how to sense and identify demonic energy, how to use her sword and other weapons effectively against demons, and how to use magic to weaken and banish them.
 
 Lohse also found a new sword in the ruins, one that was unlike any she had ever seen before. It was a black and silver sword, with a curved blade and intricate runes etched into the hilt. Malady told her that it was called the Sword of Night and Flame, and that it had the power to weaken and banish demons with its fire magic.
@@ -206,6 +342,10 @@ Lohse also found a new sword in the ruins, one that was unlike any she had ever 
 Lohse spent many long hours training with Malady, honing her skills and mastering new techniques. She became stronger, faster, and more skilled with each passing day, and she could feel the demon within her growing stronger - she knew time is of essence.
 
  Malady noticed something strange about Lohse. Whenever Lohse wielded the Sword of Night and Flame, Malady could sense a demonic energy emanating from her. At first, Malady dismissed it as a side effect of the sword's power, but as time went on, she grew increasingly concerned.
+ + Next 
+ -> Next
+ 
+ =Next
 
 One day, while Lohse was meditating, Malady approached her and asked her to concentrate on her inner demons. Lohse reluctantly agreed, and as she delved into her mind, Malady began to sense a powerful and malevolent presence lurking within her.
 
@@ -214,14 +354,23 @@ Malady realized that the demon residing within Lohse was the very same demon tha
 Malady knew that if Andramalikh was allowed to fully manifest within Lohse, he could wreak havoc on the world. She also knew that the demon was likely responsible for the voidwoken and other horrors that had been plaguing the land.
 
 Malady shared her findings with Lohse, who was shocked to learn the truth. She knew that she had to confront the demon and banish it from her body before it was too late.
+-> MEETING_DOCTOR
+-> END
 
+=== MEETING_DOCTOR ===
 As Lohse and Malady made their way to the location where Andramalikh was believed to be hiding, they could feel their hearts pounding with anticipation and fear. They knew that the final battle was about to take place, and that the outcome would determine the fate of the Lohse and the world.
 
 When they arrived at the location, they found Andramalikh waiting for them. He was a towering figure, with skin as black as night and eyes that burned with an infernal fire. He sneered at them, knowing that they had come to face him and that he was more powerful than they could ever imagine.
+-> DOCTOR_DIALOGUE
+-> END
 
-// START DIALOGUE
+=== DOCTOR_DIALOGUE ===
 Andramalikh: You two are quite the odd pair. The half-breed and the possessed mortal. What do you even hope to achieve by coming here?
 
++ Respond
+-> START_DIALOGUE
+
+= START_DIALOGUE
 Malady: We are here to put an end to your reign of terror. To restore order to the universe and ensure that innocent lives are no longer at risk.
 
 Lohse: We don't expect you to understand. You are blinded by your thirst for power and control. But we have something you don't: hope. And hope can be a powerful force.
@@ -239,8 +388,14 @@ Malady: Then it's time for you to see some action. It's time for us to show you 
 Lohse: And we won't back down until you are defeated, until the innocent lives you have taken are avenged.
 
 Andramalikh: We'll see about that. Let's dance, mortals. Let's see if you can keep up with the power of the void.
++ Final encounter
+-> FINAL_ENCOUNTER
+-> END
 
+-> END
 // END DIALOGUE
+=== FINAL_ENCOUNTER ===
+~ health_bar = 150
 Lohse and Malady knew that they had to be careful. Andramalikh was a formidable opponent, and one wrong move could mean the end of them.
 
 Andramalikh began by conjuring dark energy that he hurled towards the heroines. Malady was quick to raise a magical barrier to protect them, but it shattered upon impact.
@@ -251,13 +406,26 @@ Malady, meanwhile, unleashed a series of spells that whizzed past Andramalikh, b
 
 "Is that all you have?" he sneered. "I expected more from you."
 
++ Girls' response
+-> Girls_response
+
+= Girls_response
 Lohse gritted her teeth and lunged forward once more, but Andramalikh batted her aside with a flick of his wrist. She tumbled to the ground, but she was undeterred. She got back up, and this time, she was determined to succeed.
 
 Malady conjured a massive fireball and launched it at Andramalikh, who dodged out of the way. The demon retaliated by summoning a horde of smaller demons to attack them. Lohse and Malady fought back, their weapons and spells colliding with the demons' claws and teeth.
 
 For what felt like hours, the battle raged on. The heroines struggled against the might of Andramalikh, but they refused to give up hope. And finally, it paid off.
 
-Lohse caught Andramalikh off guard, striking him with a powerful blow. The demon staggered, and Lohse landed a critical strike deep inside demon's heart.
+Lohse caught Andramalikh off guard,
+
++ [Strike him?] 
+-> strike
++ [Hesitate] 
+-> BAD_ENDING
+-> END
+
+=strike
+striking him with a powerful blow. The demon staggered, and Lohse landed a critical strike deep inside demon's heart.
 
 They thought that was all over with the demon laying on the ground, but Andramalikh's form began to shift and change. It grew more menacing with each passing moment. It had shifted to its second form, one of a terrifying behemoth.
 
@@ -265,6 +433,11 @@ Andramalikh: "To think that a mere mortal and a watered down demon could bring t
 
 Lohse and Malady stood their ground, eyes trained on their enemy. Andramalikh let out a deafening roar as it charged towards them, its massive form shaking the ground beneath their feet.
 
++ What Lohse did?
+-> Lohse_fight
+-> END
+
+= Lohse_fight
 Lohse readied her sword, holding it with both hands, while Malady drew her daggers. The demon lunged at them with a vicious swipe, which the two of them barely dodged. Lohse retaliated with a quick slash, but Andramalikh was too quick and sidestepped her attack. Malady took advantage of the moment and aimed for the demon's exposed flank, dealing a vicious cut.
 
 The demon howled in fury and turned on Malady, pummeling her with a series of crushing blows. Lohse charged forward, attempting to distract Andramalikh, but her efforts were in vain. Andramalikh swatted Lohse aside with a powerful swipe of its clawed hand, sending her flying across the battlefield.
@@ -273,6 +446,14 @@ Lohse hit the ground hard, the wind knocked out of her lungs. She struggled to g
 
 Lohse looked up just in time to see Andramalikh raise its hand, preparing to deliver the killing blow to Malady. She couldn't stand by and watch her friend be struck down. Summoning every ounce of strength she had left, Lohse charged forward, her sword held high.
 
++ Is it the last strike?
+-> BEST_ENDING
+
+-> END
+
+=== BEST_ENDING ===
+
+
 With a fierce battle cry, Lohse delivered a powerful overhead strike, channeling all of her rage and desperation into the blow. The Sword of Night and Flame sliced through the demon's flesh like a hot knife through butter, sending a shower of sparks and embers flying in all directions.
 
 Andramalikh roared in agony, its body convulsing as it struggled to stay upright. With a final burst of energy, Malady darted forward and plunged her daggers into the demon's heart. Andramalikh let out a final scream of rage and fury before collapsing to the ground, its form dissipating into the air. 
@@ -280,12 +461,19 @@ Andramalikh roared in agony, its body convulsing as it struggled to stay upright
 As Lohse stood there, still reeling from the battle and the sudden liberation from the demon's curse, she felt a strange sensation wash over her. It started as a tingling in her fingers and toes, and then spread throughout her body like a warm glow.
 
 At first, Lohse was confused by the feeling. It wasn't painful or uncomfortable, but it was definitely unusual. Then, she realized what was happening. The curse that had plagued her for so long was fading away, leaving her feeling lighter and more free than she had in years.
++ The end?
+-> End_preparation
 
+= End_preparation
 Lohse looked down at her hands, amazed at how different they felt. They were no longer numb or tingling. They were warm and alive, and she could feel the strength in her fingers.
 
 Lohse looked around, dazed and disoriented. She could see Malady, bloodied and bruised, but still standing. She had done it. They had defeated Andramalikh.
 
 Overwhelmed with emotion, Lohse fell to her knees, tears streaming down her face. She had been so close to succumbing to the demon's influence, but somehow, she had fought it off. She looked up at Malady, who was watching her with a mixture of concern and pride.
+-> MALADY_SURVIVES
+-> END
+
+=== MALADY_SURVIVES ===
 
 "Are you okay?" Malady asked, stepping forward to help Lohse to her feet.
 
@@ -295,4 +483,41 @@ Malady smiled. "Don't worry about it," she said. "I knew you had it in you. You'
 
 Lohse and Malady stood there for a moment, breathing heavily and looking at the smoking remains of the demon. They had done it. They had defeated Andramalikh. But at what cost? They were battered and bruised, their bodies exhausted and drained. But they had succeeded in their mission, and that was all that mattered.
 
+{wants_to_cure_corrputed: 
+    + What happened next? 
+    -> Cure_infected
+}
 -> END
+
+=== Cure_infected
+Lohse and Malady traveled through the land, seeking out those infected by the void. With Malady's magic and Lohse's soothing voice, they were able to cure the afflicted, one by one. It was a difficult journey, but they persevered, and in the end, all those infected were healed. The land was safe once more, and Lohse and Malady returned to their travels, ready to face whatever challenges lay ahead.
+-> END
+
+
+=== BAD_ENDING
+Lohse hesitated for just a moment, unsure if she could bring herself to strike down Ba'al. In that moment of hesitation, Ba'al saw his opportunity and seized it. With lightning speed, he lunged forward, striking Lohse with a deadly blow before she could even react. Lohse fell to the ground, her life slipping away as Ba'al cackled in triumph. The world was plunged into darkness, and Ba'al reigned supreme over all, a testament to the cost of hesitation in times of great peril. The end.
+
++ What happened to the world?
+-> BAD_ENDING_CONTD
+-> END
+
+
+=== BAD_ENDING_CONTD
+After the void won, a dark corruption spread over the land like a cancer. The skies turned black, the rivers turned to poison, and the very earth itself was twisted and warped by the power of the void.
+
+At first, the people of the world tried to resist the corruption, but it was insidious and persistent, slowly eating away at everything they held dear. The crops withered and died, and the animals that grazed upon them became sick and diseased. Disease spread like wildfire, and those who were not killed outright by the corruption were left to suffer in agony.
+
+As the years went by, the corruption spread further and further, until there was no safe haven left. The people were forced to live in a world of darkness and despair, where every breath they took was poisoned, and every step they took was on ground that had been twisted and deformed by the void.
+
+In the end, there was no one left to fight against the corruption. The world slowly died, its beauty and vitality consumed by the darkness of the void. The only sound left was the eerie, echoing laughter of the void, triumphant in its victory over the world.
+-> END
+
+
+== function random ==
+{shuffle:
+ - ~ return 10
+ - ~ return 25
+ - ~ return 1
+ - ~ return 3
+ - ~ return 5
+}
