@@ -24,30 +24,29 @@ VAR years_old = 20
     + No
     -> Introduction_2
     + Yes
+    Lohse sat quietly in her small room, staring blankly at the wall. As time passed, Lohse withdrew more and more from the world. She rarely left her room, rarely spoke to anyone. Her health began to decline, and she grew weaker every day.
+    
     -> poor_ending
     
     = poor_ending
-    Lohse sat quietly in her small room, staring blankly at the wall. As time passed, Lohse withdrew more and more from the world. She rarely left her room, rarely spoke to anyone. Her health began to decline, and she grew weaker every day.
-    === slowly_dying ===
     ~ years_old = years_old + 15
     
     {
         - corruption_levels > 100:
         Lohse dies from the curse.
         - years_old > 20 && years_old < 40:
-        ~ corruption_levels += {random()}
+        ~ corruption_levels += random()
         - years_old > 30 && years_old < 45:
-        ~ corruption_levels += {random()*2}
+        ~ corruption_levels += random()*2
         - years_old > 50:
         Lohse dies from a heart attack.
         -> END
         - else:
-            Lohse eventually dies.
+        Lohse eventually dies.
+        -> END
+
     }
-    -> poor_ending
-    -> END
-    
-    
+
     + Outcome
     Lohse's story didn't end with a bang, but with a whisper. She had the potential to be a hero, but in the end, she chose to do nothing. And so, the world continued to suffer, and Lohse was forgotten by all but a few who remembered her as a lost opportunity.
     -> END
@@ -216,40 +215,83 @@ At last, she came to a massive chamber, where Ba'al was waiting for her. The dem
 
 Lohse drew her weapon, knowing that this would be the fight of her lives. She had faced demons before, but none as powerful as Ba'al. She would have to be quick and coordinated.
 
-+ Charge in
+// OPTIONS
++ [Charge in] -> charge_in
++ Analyse surroundings -> analyse_surroundings
+
+=== charge_in ===
 Ba'al's sword struck with the force of a battering ram, sending Lohse tumbling across the floor.
 ~ health_bar = health_bar - 20
 ~ fear = fear + 15
-+ Analyse surroundings
-You are analysing your surroundings preparing for the unexpected.
+-> mid_baal_fight
+-> END
 
+=== analyse_surroundings ===
+You are analysing your surroundings preparing for the unexpected.
+~ fear = fear - 5
+-> mid_baal_fight
+-> END
+
+=== mid_baal_fight ===
 As Ba'al charged forward, his massive sword arcing through the air, Lohse leapt aside, dodging the attack with ease. She knew that she had to be quick and agile if she was going to take down a demon of this size and strength.
 
 With a fierce determination in her eyes, Lohse closed the distance between herself and Ba'al, her sword flashing in the dim light. She struck with lightning-fast blows, each one aimed at a weak point in the demon's armor.
 
 Ba'al bellowed with rage as Lohse's sword struck true, sending sparks flying in all directions. He retaliated with a brutal swing of his sword, but Lohse was too quick. She sidestepped the attack and delivered a powerful kick to the demon's shins, sending him off-balance.
 
-VAR opp = 'Seizing the opportunity'
-+ Keep going forward
-{opp}, Lohse darted forward, thrusting her sword deep into Ba'al's side. The demon howled with pain, his massive frame shaking with the force of the blow. But he refused to go down without a fight.
 
-+ Take a breath and a step back
+// options ( maybe 1 more)
++ Keep going forward -> go_forward
++ Take a breath and a step back -> reset
+
+=== reset ===
 ~ health_bar = health_bar + 10
 ~ fear = fear - 5
+    -> final_baal_fight
+-> DONE
 
+=== go_forward ===
+Seizing the opportunity, Lohse darted forward, thrusting her sword deep into Ba'al's side. The demon howled with pain, his massive frame shaking with the force of the blow. But he refused to go down without a fight.
+    -> final_baal_fight
+-> DONE
+
+    // CONTINUE
+-> END
+
+
+
+
+=== final_baal_fight ===
 With a fierce roar, Ba'al grabbed Lohse by the shoulders, lifting her off the ground. Lohse struggled to break free, her heart pounding in her chest. She knew that she was in serious trouble.
 ~ fear = fear + 25
+{
+- fear == 100:
+    Lohse's consumed by her fear.
+}
+// OPTIONS
++ [Thrust your sword in Ba'als arm] -> thrust_sword
++ [Keep struggling] -> keep_struggling
+
+=== thrust_sword ===
+But Lohse was not one to give up easily. With a fierce determination, she summoned all of her strength and drove her sword into Ba'al's arm. The demon howled with rage, his grip on Lohse loosening just enough for her to wriggle free.
+    -> after_baal_fight
+-> DONE
+
+=== keep_struggling ===
+You keep struggling and you feel your bones breaking but because of this you slipped from Ba'al's grasp.
+~ health_bar = health_bar - 25
+~ fear = fear + 15
+    -> after_baal_fight
+-> DONE
+
+=== after_baal_fight  ===
 
 {
-- fear = 100:
-    Lohse's consumed by her fear.
-    -> END
+    - fear == 100:
+        Lohse sufferes a heart attack and dies.
+    - health_bar <= 0:
+        Lohse dies from blood loss.
 }
-
-+ Thrust your sword in Ba'als arm
-But Lohse was not one to give up easily. With a fierce determination, she summoned all of her strength and drove her sword into Ba'al's arm. The demon howled with rage, his grip on Lohse loosening just enough for her to wriggle free.
-
-+ 
 
 Free from Ba'al's grasp, Lohse leapt away, putting distance between herself and the demon. She knew that she was hurt, but she refused to give up. With a deep breath, she readied herself for another attack.
 
@@ -258,8 +300,19 @@ The fight raged on, each blow striking with the force of a hammer. But in the en
 Panting and bloody, Lohse stood victorious, her spirits lifted by her hard-fought victory. She knew that there were still many challenges ahead, but for now, she could rest, secure in the knowledge that she had defeated one of the most powerful demons of the Void.
 
 As she left the temple, Lohse could feel the weight of the Void lifting from her, a sense of peace and calm settling over her. She knew that she still had a long way to go before she could stop the Void once and for all, but she was ready to face whatever lay ahead. With Malady at her side, she knew that she could overcome anything.
+~ fear = 0
+~ corruption_levels = corruption_levels + 25
+~ health_bar = 100
+
+
+
+
 
 -> TRAINING_ARC
+
+// DOONE
+-> DONE
+// END
 -> END
 
 === TRAINING_ARC ===
@@ -397,4 +450,4 @@ Lohse and Malady stood there for a moment, breathing heavily and looking at the 
  - ~ return 1
  - ~ return 3
  - ~ return 5
-}
+}s
